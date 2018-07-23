@@ -12,6 +12,7 @@ public class NonNavMeshPathfinder : MonoBehaviour
 
     public Transform[] destination;
     public int destPoint;
+    public bool randomMove;
 
 
 
@@ -26,16 +27,24 @@ public class NonNavMeshPathfinder : MonoBehaviour
             destination[num] = obj.transform;
             num++;
         }
-        destPoint = Random.Range(0, 10);
+        destPoint = Random.Range(0, destination.Length);
         GetComponent<PathManager>().NavigateTo(destination[destPoint].position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, destination[destPoint].position) < 0.2)
+        if (Vector3.Distance(transform.position, destination[destPoint].position) < 0.1)
         {
-            destPoint = (destPoint + 1) % destination.Length;
+            if (!randomMove)
+            {
+                destPoint = (destPoint + 1) % destination.Length;
+            }
+            else
+            {
+                //print(destination.Length);
+                destPoint = Random.Range(0, destination.Length);
+            }
             transform.LookAt(destination[destPoint].position);
             GetComponent<PathManager>().NavigateTo(destination[destPoint].position);
         }

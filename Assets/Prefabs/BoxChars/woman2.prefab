@@ -719,7 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b564e63a9e81c4fb0154c1d97dcb0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 0.2
+  walkSpeed: 0.11
   currentWaypointPosition: {x: 0, y: 0, z: 0}
   moveTimeTotal: 0
   moveTimeCurrent: 0
@@ -766,6 +766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: []
   destPoint: 0
+  randomMove: 1
 --- !u!136 &136566758653416998
 CapsuleCollider:
   m_ObjectHideFlags: 1

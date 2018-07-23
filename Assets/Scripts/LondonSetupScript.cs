@@ -10,28 +10,29 @@ namespace AiGame
     {
         public static LondonSetupScript Instance;
 
-        [SerializeField]
-        private Vector3 BoundsCenter = Vector3.zero;
-        [SerializeField]
-        private Vector3 BoundsSize = new Vector3(2500, 2500, 2500);
-        [SerializeField]
-        private int SettingsId;
-        [SerializeField]
-        private LayerMask BuildMask;
-        [SerializeField]
-        private LayerMask BuildMaskNonWalk;
-        [SerializeField]
-        private NavMeshData NavMeshData;
-        private NavMeshDataInstance NavMeshDataInstance;
+       // [SerializeField]
+       // private Vector3 BoundsCenter = Vector3.zero;
+      //  [SerializeField]
+        //private Vector3 BoundsSize = new Vector3(2500, 2500, 2500);
+       // [SerializeField]
+        //private int SettingsId;
+       // [SerializeField]
+        //private LayerMask BuildMask;
+        //[SerializeField]
+        //private LayerMask BuildMaskNonWalk;
+        //[SerializeField]
+        //private NavMeshData NavMeshData;
+        //private NavMeshDataInstance NavMeshDataInstance;
         public GameObject waypointObj;
         public GameObject[] thingsToSpawn;
         public GameObject portalModel;
         public GameObject[] waypoints;
         public GameObject roadSpawn;
+        public GameObject ghost;
 
         public void UpdateNavmeshData()
         {
-            StartCoroutine(UpdateNavmeshDataAsync());
+            //StartCoroutine(UpdateNavmeshDataAsync());
         }
 
         private void Awake()
@@ -45,6 +46,8 @@ namespace AiGame
             StartCoroutine("setup");
             
         }
+
+        /**
         public GameObject[] roads;
         public MeshRenderer[] roadsMesh;
         public GameObject roadsObj;
@@ -57,13 +60,13 @@ namespace AiGame
         public GameObject[] building;
         public MeshRenderer[] buildingMesh;
         public GameObject buildingObj;
-
+            */
         IEnumerator setup()
         {
    
             yield return new WaitForSeconds(4);
             
-            for(int num=0;num<10;num++)
+            for(int num=0;num<9;num++)
             {
                 //waypoints[num]=Instantiate(waypointObj, RandomNavmeshLocation(10),Quaternion.identity);
                 //Place in defined place instead of using random navmesh location
@@ -72,13 +75,9 @@ namespace AiGame
                 waypoints[num].transform.parent = transform.parent;
             }
 
-
-            print(waypoints[0].transform.localPosition);
             waypoints[0].transform.localPosition = new Vector3(-2.82f, 0.2797f, 5.12f);
-
-            print(waypoints[0].transform.localPosition);
             waypoints[1].transform.localPosition = new Vector3(-2.64f, 0.2808849f, -0.302f);
-            waypoints[2].transform.localPosition = new Vector3(-9.46f, 0.1833339f, -0.29f);
+            waypoints[2].transform.localPosition = new Vector3(-9.46f, 0.1833339f, 0.55f);
             waypoints[3].transform.localPosition = new Vector3(-2.03f, 0.3000002f, -2.909342f);
             waypoints[4].transform.localPosition = new Vector3(-2.34f, 0.2666669f, -5.38f);
             waypoints[5].transform.localPosition = new Vector3(-4.44f, 0.26f, 2.65f);
@@ -86,34 +85,28 @@ namespace AiGame
             waypoints[7].transform.localPosition = new Vector3(-7.32f, 0.341f, 3.9f);
             waypoints[8].transform.localPosition = new Vector3(1.48f, 0.222f, 5.01f);
 
-            waypoints[0].GetComponent<Waypoint>().neighbors.Add(waypoints[9].GetComponent<Waypoint>());
+            waypoints[0].GetComponent<Waypoint>().neighbors.Add(waypoints[8].GetComponent<Waypoint>());
             waypoints[0].GetComponent<Waypoint>().neighbors.Add(waypoints[5].GetComponent<Waypoint>());
-            waypoints[0].GetComponent<Waypoint>().neighbors.Add(waypoints[1].GetComponent<Waypoint>());
-            waypoints[1].GetComponent<Waypoint>().neighbors.Add(waypoints[9].GetComponent<Waypoint>());
-            waypoints[1].GetComponent<Waypoint>().neighbors.Add(waypoints[5].GetComponent<Waypoint>());
+            waypoints[0].GetComponent<Waypoint>().neighbors.Add(waypoints[7].GetComponent<Waypoint>());
             waypoints[1].GetComponent<Waypoint>().neighbors.Add(waypoints[3].GetComponent<Waypoint>());
+            waypoints[1].GetComponent<Waypoint>().neighbors.Add(waypoints[0].GetComponent<Waypoint>());
+            waypoints[1].GetComponent<Waypoint>().neighbors.Add(waypoints[5].GetComponent<Waypoint>());
+            waypoints[2].GetComponent<Waypoint>().neighbors.Add(waypoints[5].GetComponent<Waypoint>());
             waypoints[2].GetComponent<Waypoint>().neighbors.Add(waypoints[6].GetComponent<Waypoint>());
-            waypoints[2].GetComponent<Waypoint>().neighbors.Add(waypoints[1].GetComponent<Waypoint>());
-            waypoints[2].GetComponent<Waypoint>().neighbors.Add(waypoints[9].GetComponent<Waypoint>());
-            waypoints[3].GetComponent<Waypoint>().neighbors.Add(waypoints[1].GetComponent<Waypoint>());
             waypoints[3].GetComponent<Waypoint>().neighbors.Add(waypoints[4].GetComponent<Waypoint>());
-            waypoints[3].GetComponent<Waypoint>().neighbors.Add(waypoints[8].GetComponent<Waypoint>());
+            waypoints[3].GetComponent<Waypoint>().neighbors.Add(waypoints[1].GetComponent<Waypoint>());
             waypoints[4].GetComponent<Waypoint>().neighbors.Add(waypoints[6].GetComponent<Waypoint>());
             waypoints[4].GetComponent<Waypoint>().neighbors.Add(waypoints[3].GetComponent<Waypoint>());
-            waypoints[4].GetComponent<Waypoint>().neighbors.Add(waypoints[8].GetComponent<Waypoint>());
+            waypoints[5].GetComponent<Waypoint>().neighbors.Add(waypoints[2].GetComponent<Waypoint>());
             waypoints[5].GetComponent<Waypoint>().neighbors.Add(waypoints[0].GetComponent<Waypoint>());
-            waypoints[5].GetComponent<Waypoint>().neighbors.Add(waypoints[3].GetComponent<Waypoint>());
-            waypoints[5].GetComponent<Waypoint>().neighbors.Add(waypoints[7].GetComponent<Waypoint>());
-            waypoints[6].GetComponent<Waypoint>().neighbors.Add(waypoints[4].GetComponent<Waypoint>());
-            waypoints[6].GetComponent<Waypoint>().neighbors.Add(waypoints[3].GetComponent<Waypoint>());
+            waypoints[5].GetComponent<Waypoint>().neighbors.Add(waypoints[8].GetComponent<Waypoint>());
+            waypoints[5].GetComponent<Waypoint>().neighbors.Add(waypoints[1].GetComponent<Waypoint>());
             waypoints[6].GetComponent<Waypoint>().neighbors.Add(waypoints[2].GetComponent<Waypoint>());
-            waypoints[7].GetComponent<Waypoint>().neighbors.Add(waypoints[8].GetComponent<Waypoint>());
-            waypoints[7].GetComponent<Waypoint>().neighbors.Add(waypoints[5].GetComponent<Waypoint>());
             waypoints[7].GetComponent<Waypoint>().neighbors.Add(waypoints[0].GetComponent<Waypoint>());
-            waypoints[8].GetComponent<Waypoint>().neighbors.Add(waypoints[2].GetComponent<Waypoint>());
-            waypoints[8].GetComponent<Waypoint>().neighbors.Add(waypoints[1].GetComponent<Waypoint>());
             waypoints[8].GetComponent<Waypoint>().neighbors.Add(waypoints[0].GetComponent<Waypoint>());
+            waypoints[8].GetComponent<Waypoint>().neighbors.Add(waypoints[5].GetComponent<Waypoint>());
 
+            /**
             buildingObj = GameObject.Find("Buildings");
             buildingMesh = buildingObj.GetComponentsInChildren<MeshRenderer>();
             building = new GameObject[buildingMesh.Length];
@@ -124,9 +117,12 @@ namespace AiGame
                 child.gameObject.GetComponent<MeshCollider>().convex = true;
                 //building[k].layer = LayerMask.NameToLayer("NavMeshAvoid");
                 k++;
-            }
-
-
+            }*/
+            print(ghost.transform.position);
+            print(ghost.transform.localPosition);
+            ghost.transform.localPosition = waypoints[1].transform.localPosition;
+            print(ghost.transform.position);
+            print(ghost.transform.localPosition);
 
             for (int j=0;j<(numToSpawn/10);j++)
             {
@@ -151,7 +147,7 @@ namespace AiGame
                 StartCoroutine(spawnNPCWaves(6));
                 StartCoroutine(spawnNPCWaves(7));
                 StartCoroutine(spawnNPCWaves(8));
-                StartCoroutine(spawnNPCWaves(9));
+                //StartCoroutine(spawnNPCWaves(9));
 
             }
             spawnPortals();
@@ -168,7 +164,7 @@ namespace AiGame
            spawnedThing.transform.parent = transform;
             GameObject playerThing = GameObject.FindGameObjectWithTag("Player");
             playerThing.transform.parent = transform;
-            playerThing.transform.position = waypoints[1].transform.position + new Vector3(0, 0.138f, 0) ;
+            playerThing.transform.position = waypoints[1].transform.position + new Vector3(0, 0.018f, 0) ;
 
         }
         
@@ -208,7 +204,7 @@ namespace AiGame
             GameObject spawnedThing = Instantiate(thingToSpawn, loc, Quaternion.identity);
             spawnedThing.transform.parent = transform;   
         }
-        
+        /**
         private void AddNavMeshData()
         {
             if (NavMeshData != null)
@@ -257,6 +253,7 @@ namespace AiGame
             return sources;
         }
 
+        
         public NavMeshBuildMarkup buildMarkup;
         public NavMeshBuildMarkup buildMarkup2;
         public List<NavMeshBuildMarkup> buildMarkupList;
@@ -293,7 +290,7 @@ namespace AiGame
         /**
          * Random navmesh creation- stackoverflow
          *  https://answers.unity.com/questions/475066/how-to-get-a-random-point-on-navmesh.html
-         */
+         *
 
         public Vector3 RandomNavmeshLocation(float radius)
         {
@@ -306,7 +303,7 @@ namespace AiGame
                 finalPosition = hit.position;
             }
             return finalPosition;
-        }
+        }*/
 
 
     }

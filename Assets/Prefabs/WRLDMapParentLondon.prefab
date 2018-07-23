@@ -13,7 +13,7 @@ Prefab:
   m_IsPrefabParent: 1
 --- !u!1 &1168021968721906
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4800077227176882}
   - component: {fileID: 114140413850435058}
-  - component: {fileID: 114216678998428824}
+  - component: {fileID: 114600340513527050}
   m_Layer: 0
   m_Name: WRLDMap
   m_TagString: Untagged
@@ -103,12 +103,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1301882642500174}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 15, z: 15}
+  m_LocalPosition: {x: -4, y: 0, z: 0}
+  m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children:
   - {fileID: 4511260062955290}
   m_Father: {fileID: 4204169260086522}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4181608685868118
 Transform:
@@ -117,10 +117,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1168021968721906}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 0, y: 0.0528, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
-  m_Father: {fileID: 4800077227176882}
+  m_Father: {fileID: 4204169260086522}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4204169260086522
@@ -131,8 +131,9 @@ Transform:
   m_GameObject: {fileID: 1674728301546502}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
+  - {fileID: 4181608685868118}
   - {fileID: 4800077227176882}
   - {fileID: 4057840316382112}
   m_Father: {fileID: 0}
@@ -160,10 +161,9 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.0528, z: 0}
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
-  m_Children:
-  - {fileID: 4181608685868118}
+  m_Children: []
   m_Father: {fileID: 4204169260086522}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23251167643640986
 MeshRenderer:
@@ -298,50 +298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce82f6664b88fd41b2476a3bb869918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114216678998428824
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1426104074058720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3a7128cf1cdf4848b654b71402a73a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BoundsCenter: {x: 0, y: 0, z: 0}
-  BoundsSize: {x: 15, y: 15, z: 15}
-  SettingsId: 0
-  BuildMask:
-    serializedVersion: 2
-    m_Bits: 512
-  BuildMaskNonWalk:
-    serializedVersion: 2
-    m_Bits: 1024
-  NavMeshData: {fileID: 0}
-  waypointObj: {fileID: 1841471040135642, guid: 7e5427b1e8bb8f948b0d7edd7083a149,
-    type: 2}
-  thingsToSpawn:
-  - {fileID: 1048936689443372, guid: 1436285fadb23d943b4b2c1e6e035b13, type: 2}
-  - {fileID: 1106171129829136, guid: 45460774fe3d08c4e9f477239697a906, type: 2}
-  - {fileID: 1265909126902860, guid: 84e3b29c47396b34e90c98277381872e, type: 2}
-  - {fileID: 1854557759246636, guid: 511efa2990310c849bd6848da63ce9fe, type: 2}
-  - {fileID: 1411495608665986, guid: 830d9d932d4ae274a89d8ca017da3528, type: 2}
-  portalModel: {fileID: 1731343960459450, guid: 0d8155aede50ddc41befe142e9a246b5,
-    type: 2}
-  waypoints: []
-  roadSpawn: {fileID: 1304299878237950, guid: d7e0995f26e9f254aad14400e616cd87, type: 2}
-  roads: []
-  roadsMesh: []
-  roadsObj: {fileID: 1304299878237950, guid: d7e0995f26e9f254aad14400e616cd87, type: 2}
-  ground: []
-  groundMesh: []
-  groundObj: {fileID: 0}
-  building: []
-  buildingMesh: []
-  buildingObj: {fileID: 0}
-  numSpawned: 0
-  numToSpawn: 200
 --- !u!114 &114503748616754126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -355,7 +311,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 1
+  wrldMap: {fileID: 0}
   cameraAttach: {fileID: 0}
+--- !u!114 &114600340513527050
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1426104074058720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae8d0e1b06f25648a2b5459348bd5f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointObj: {fileID: 1841471040135642, guid: 7e5427b1e8bb8f948b0d7edd7083a149,
+    type: 2}
+  thingsToSpawn:
+  - {fileID: 1048936689443372, guid: 1436285fadb23d943b4b2c1e6e035b13, type: 2}
+  - {fileID: 1106171129829136, guid: 45460774fe3d08c4e9f477239697a906, type: 2}
+  - {fileID: 1265909126902860, guid: 84e3b29c47396b34e90c98277381872e, type: 2}
+  - {fileID: 1854557759246636, guid: 511efa2990310c849bd6848da63ce9fe, type: 2}
+  - {fileID: 1411495608665986, guid: 830d9d932d4ae274a89d8ca017da3528, type: 2}
+  portalModel: {fileID: 1731343960459450, guid: 0d8155aede50ddc41befe142e9a246b5,
+    type: 2}
+  waypoints: []
+  roadSpawn: {fileID: 0}
+  ghost: {fileID: 1168021968721906}
+  numSpawned: 0
+  numToSpawn: 200
 --- !u!135 &135306045420151468
 SphereCollider:
   m_ObjectHideFlags: 1
