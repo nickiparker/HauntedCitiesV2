@@ -338,7 +338,7 @@ MonoBehaviour:
   roadSpawn: {fileID: 0}
   ghost: {fileID: 1168021968721906}
   numSpawned: 0
-  numToSpawn: 200
+  numToSpawn: 150
 --- !u!135 &135306045420151468
 SphereCollider:
   m_ObjectHideFlags: 1

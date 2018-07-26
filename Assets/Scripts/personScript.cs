@@ -19,37 +19,32 @@ public class personScript : MonoBehaviour {
 
     void OnMouseDown()
     {
-        print("name "+gameObject.name+Vector3.Distance(transform.position, player.transform.position));
-        if (Vector3.Distance(transform.position, player.transform.position) < 1 && selected == false)
+        //print("name "+gameObject.name+Vector3.Distance(transform.position, player.transform.position));
+        if (Vector3.Distance(transform.position, player.transform.position) < 0.1f && selected == false)
         {
             player.GetComponent<GhostScript>().target = transform;
             selected = true;
         }
         //Application.LoadLevel(0);
     }
+    public Renderer ren;
+    public void newChangeColour()
+    {
+        //print("Colour change");
+        //Renderer 
+            ren = GetComponentInChildren<Renderer>();
+        ren.material.color = Color.red;
+    }
 
-    public void changeColour()
+    public void ChangeColour()
     {
         Renderer[] rens = GetComponentsInChildren<Renderer>();
-        Material[] mats = new Material[rens.Length];
-
-        int i = 0;
+       
 
         foreach(Renderer ren in rens)
         {
-            mats[i] = ren.material;
+            ren.material.color = Color.red;
         }
 
-        foreach (Material mat in mats)
-        {
-            if (mat.color == Color.white)
-            {
-                mat.color = Color.red;
-            }
-            else
-            {
-                mat.color = Color.white;
-            }
-        }
     }
 }
