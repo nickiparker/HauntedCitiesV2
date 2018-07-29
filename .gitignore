@@ -34,3 +34,19 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+# Assets 
+Assets/UnityARKitPlugin*
+Assets/StreamingAssets/WrldResources/*
+Assets/.DS_Store
+Assets/Cartoon_crate_collection.meta
+Assets/Scenes/ARKitSettings.asset
+Assets/Scenes/ARKitSettings.asset.meta
+Assets/Scripts/portalManager.cs.meta
+Assets/Scripts/portalScript.cs.meta
+
+# XCode Builds
+haunted_cities/
+
+# DS_Store
+.DS_Store
