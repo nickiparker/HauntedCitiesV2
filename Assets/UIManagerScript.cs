@@ -28,6 +28,7 @@ public class UIManagerScript : MonoBehaviour {
 
     public void StartGame()
     {
+        Screen.SetResolution(1334, 750, true);
         SceneManager.LoadScene("London");
     }
 
