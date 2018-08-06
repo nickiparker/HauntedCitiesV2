@@ -57,18 +57,18 @@ public class GhostScript : MonoBehaviour {
                 {
                     if (target.tag == "Finish")
                     {
-                        
-                        Destroy(target);
+                        transform.parent = target;
+                        NewEventManager.TriggerEvent("win");
+                        Destroy(target.gameObject);
                         Destroy(gameObject);
                     }
-                    else if(target.tag=="Random")
+                    else if (target.tag == "Random")
                     {
-                        if(locations.Length<1)
+                        if (locations.Length < 1)
                         {
-                           
-                            GameObject[] locObjs= GameObject.FindGameObjectsWithTag("Waypoint");
+                            GameObject[] locObjs = GameObject.FindGameObjectsWithTag("Waypoint");
                             locations = new Transform[locObjs.Length];
-                           
+
                             for (int i = 0; i < locObjs.Length; i++)
                             {
                                 locations[i] = locObjs[i].transform;
@@ -77,7 +77,16 @@ public class GhostScript : MonoBehaviour {
                         transform.parent = wrldMap;
                         StopCoroutine("countDownToDrop");
                         transform.position = locations[Random.Range(0, locations.Length)].position;
-                       
+                    }
+                    else if (target.tag=="Shuffle")
+                    {
+                        NewEventManager.TriggerEvent("Shuffle");
+                        Destroy(target.gameObject);
+                    }
+                    else if (target.tag == "SpeedUp")
+                    {
+                        NewEventManager.TriggerEvent("speedUp");
+                        Destroy(target.gameObject);
                     }
                     else
                     {
@@ -122,6 +131,16 @@ public class GhostScript : MonoBehaviour {
                         Destroy(target);
                         Destroy(gameObject);
                     }
+                    else if (target.tag == "Shuffle")
+                    {
+                        NewEventManager.TriggerEvent("Shuffle");
+                        Destroy(target);
+                    }
+                    else if (target.tag == "SpeedUp")
+                    {
+                        NewEventManager.TriggerEvent("speedUp");
+                        Destroy(target);
+                    }
                     else
                     {
                         //print(Vector3.Distance(transform.position, target.position));
@@ -136,5 +155,10 @@ public class GhostScript : MonoBehaviour {
         StartCoroutine("checkDistance");
     }
 
+    public void drop()
+    {
+        transform.parent = wrldMap;
+        StopCoroutine("countDownToDrop");
+    }
 
 }
