@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenuScene.unity
     guid: 08fe7838b73cc463eba8a2da5b6a8a11
   - enabled: 1
+    path: Assets/Scenes/Mission.unity
+    guid: d63e19ef2161e43798ab81bb54d38401
+  - enabled: 1
     path: Assets/Scenes/SelectCity.unity
     guid: 921f7ea147a004f0290b597a246ccbd1
   - enabled: 1
