@@ -39,11 +39,11 @@ sysinfo.txt
 Assets/UnityARKitPlugin*
 Assets/StreamingAssets/WrldResources/*
 Assets/.DS_Store
-Assets/Cartoon_crate_collection.meta
+#Assets/Cartoon_crate_collection.meta
 Assets/Scenes/ARKitSettings.asset
 Assets/Scenes/ARKitSettings.asset.meta
 Assets/Scripts/portalManager.cs.meta
-Assets/Scripts/portalScript.cs.meta
+#Assets/Scripts/portalScript.cs.meta
 
 # XCode Builds
 haunted_cities/
