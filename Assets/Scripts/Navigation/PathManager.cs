@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Script provided by trickyfast studios to manage navigation between a set path
+ * Modified version of script provided by trickyfast studios to manage navigation between a set path using waypoint system
  * */
 
 public class PathManager : MonoBehaviour
@@ -108,5 +108,25 @@ public class PathManager : MonoBehaviour
 		}
 		return null;
 	}
+
+
+    void OnEnable()
+    {
+        NewEventManager.StartListening("speedUp", speedUp);
+    }
+
+    void OnDisable()
+    {
+        NewEventManager.StopListening("speedUp", speedUp);
+    }
+
+    /**
+     * Called when speed up power up is triggered
+     */
+
+    public void speedUp()
+    {
+        walkSpeed *= 1.2f;
+    }
 
 }
